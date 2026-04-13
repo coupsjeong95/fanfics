@@ -65,10 +65,10 @@ function cardHTML(f, idx) {
   <div class="card-top">
     <a class="card-title" href="${esc(f.link)}" target="_blank" rel="noopener noreferrer">${esc(f.title)}</a>
     <span class="card-author">${esc(f.author)}</span>
-        <span class="card-platform">${fic.platform}</span> </div>
   </div>
   <div class="card-mid">
     <p class="card-summary">${esc(f.summary)}</p>
+    <span class="card-platform">${fic.platform}</span> </div>
   </div>
   <div class="card-tags">${tagsStr}</div>
 </article>`;
