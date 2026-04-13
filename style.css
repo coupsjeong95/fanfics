@@ -499,7 +499,7 @@ main {
 }
 .f-input:focus, .f-textarea:focus { border-color: var(--rose-soft); }
 .f-input::placeholder, .f-textarea::placeholder { color: var(--text-3); }
-.f-textarea { resize: none; min-height: 54px; }
+.f-textarea { resize: none; min-height: 27px; }
 
 /* Radio pill choices */
 .choice-row { display: flex; flex-wrap: wrap; gap: 0.38rem; }
