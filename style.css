@@ -81,6 +81,7 @@ body::before {
 .bg-dot-1 { top: 38%; right: 18%; }
 .bg-dot-2 { top: 65%; left: 8%; }
 
+
 /* ---- Layout ---- */
 .container {
   max-width: 840px;
