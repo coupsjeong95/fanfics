@@ -60,22 +60,27 @@ body {
 a { color: var(--rose); text-decoration: none; }
 a:hover { color: var(--rose-deep); }
 
-/* ---- Horizontal line background ---- */
-body::before {
-  content: '';
+/* ---- Background geometric shapes ---- */
+.bg-geo {
   position: fixed;
-  inset: 0;
-  background-image: repeating-linear-gradient(
-    180deg,
-    transparent 0,
-    transparent 59px,
-    var(--rose-line) 59px,
-    var(--rose-line) 60px
-  );
-  opacity: 0.2;
   pointer-events: none;
   z-index: 0;
 }
+.bg-ring-bl {
+  bottom: -120px; left: -120px;
+  width: 440px; height: 440px;
+  border-radius: 50%;
+  border: 1px solid var(--rose-line);
+  opacity: 0.5;
+}
+.bg-diamond-tr {
+  top: 15%; right: -60px;
+  width: 180px; height: 180px;
+  border: 1px solid var(--rose-line);
+  transform: rotate(45deg);
+  opacity: 0.35;
+}
+
 
 /* ---- Layout ---- */
 .container {
