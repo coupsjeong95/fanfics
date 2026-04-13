@@ -329,48 +329,38 @@ main {
    font-family: var(--font-body);
 }
 
-/* 1. 强制父级：绝对不许换行 */
 .card-mid {
   display: flex !important;
   flex-direction: row !important;
-  flex-wrap: nowrap !important;   /* 重点：这就是强制它们死也要死在同一行的铁律 */
-  justify-content: space-between !important;
-  align-items: flex-start !important;
-  width: 100% !important;
-  gap: 10px !important;
+  flex-wrap: nowrap !important;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
 }
-
-/* 简介样式 */
 .card-summary {
-  display: block !important;    /* 强制块级化，占领 flex 空间 */
-  flex: 1 !important;
-  min-width: 0 !important;
-  color: var(--text-2) !important; /* 确保是简介的颜色 */
-  font-size: 0.78rem !important;
-  line-height: 1.6;
+  display: block !important;
+  font-size: 0.78rem;
+  color: var(--text-2);
+  line-height: 1.65;
+  flex: 1;
+  min-width: 0;
+  font-weight: 300;
   margin: 0 !important;
-  text-align: left;
 }
-
-/* 平台标签样式 - 重新找回它的个性 */
 .card-platform {
-  display: inline-block !important; /* 必须加这行，样式才会生效 */
-  flex-shrink: 0 !important;
-  
-  /* 恢复你想要的特殊样式 */
-  color: var(--rose) !important;    /* 强制变回红色 */
-  font-size: 0.63rem !important;    /* 字体变小 */
-  font-weight: bold !important;     /* 甚至可以加粗 */
-  text-transform: uppercase;        /* 强制大写 */
-  
-
-  
-  /* 调整对齐 */
-  margin-left: 10px;
-  align-self: flex-start;           /* 顶部对齐 */
+  display: inline-block !important;
+  font-size: 0.63rem;
+  color: var(--rose);
+  flex-shrink: 0;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding-top: 0.15rem;
+  opacity: 0.8;
+  transition: opacity var(--ease);
 }
-
-
 .card-platform:hover { opacity: 1; }
 
 /* Dot-separated minimal tags */
