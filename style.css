@@ -333,8 +333,10 @@ main {
   display: flex;
   justify-content: space-between; /* 关键：两端对齐 */
   align-items: flex-start;        /* 顶部对齐，防止简介多行时平台居中 */
-  gap: 1rem;                    /* 简介和平台之间的间距 */
-  width: 100%;
+  gap: 1rem;         
+flex-direction: row;
+   flex-wrap: nowrap;
+   
 }
 
 .card-summary {
@@ -345,6 +347,8 @@ main {
   min-width: 0;                   /* 配合 flex 防止长文本撑破布局 */
   font-weight: 300;
    margin: 0;
+   display: block;
+   width: auto;
    font-family: var(--font-body);
 }
 
