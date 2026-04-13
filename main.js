@@ -67,7 +67,7 @@ function cardHTML(f, idx) {
     <span class="card-author">${esc(f.author)}</span>
   </div>
   <div class="card-mid">
-    <p class="card-summary">${esc(f.summary)}</p>
+    <span class="card-summary">${esc(f.summary)}</span>
     <span class="card-platform">${esc(f.platform)}</span>
     </div>
   <div class="card-tags">${tagsStr}</div>
