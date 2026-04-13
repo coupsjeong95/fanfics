@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coupsjeong fanfics</title>
+  <!-- Prevent theme flash -->
+  <script>(function(){const t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background geometric decorations -->
+  <div class="bg-geo bg-ring-bl"></div>
+  <div class="bg-geo bg-diamond-tr"></div>
+  <div class="bg-geo bg-dot bg-dot-1"></div>
+  <div class="bg-geo bg-dot bg-dot-2"></div>
+
+  <!-- ======== Header ======== -->
+  <header class="site-header">
+    <div class="h-geo h-ring-1"></div>
+    <div class="h-geo h-ring-2"></div>
+    <div class="h-geo h-diamond"></div>
+    <div class="h-rule"></div>
+    <div class="container">
+      <div class="header-inner">
+        <div>
+          <div class="header-eyebrow">同人文推荐</div>
+          <h1 class="site-title">Coupsjeong <em>fanfics</em></h1>
+        </div>
+        <div class="header-actions">
+          <button class="btn-icon" id="themeBtn" aria-label="切换深浅色">🌙</button>
+          <a class="btn-cta" href="submit.html">✦ 投稿</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======== Main ======== -->
+  <main>
+    <div class="container">
+
+      <!-- Filters -->
+      <section class="filter-block" aria-label="筛选">
+        <div class="filter-row">
+          <span class="filter-lbl">时代</span>
+          <div class="pill-row">
+            <button class="f-pill active" data-filter="era" data-value="">全部</button>
+            <button class="f-pill" data-filter="era" data-value="现代">现代</button>
+            <button class="f-pill" data-filter="era" data-value="古代">古代</button>
+            <button class="f-pill" data-filter="era" data-value="未来世界">未来世界</button>
+            <button class="f-pill" data-filter="era" data-value="架空">架空</button>
+          </div>
+        </div>
+        <div class="filter-row">
+          <span class="filter-lbl">进度</span>
+          <div class="pill-row">
+            <button class="f-pill active" data-filter="progress" data-value="">全部</button>
+            <button class="f-pill" data-filter="progress" data-value="完结">完结</button>
+            <button class="f-pill" data-filter="progress" data-value="连载">连载</button>
+            <button class="f-pill" data-filter="progress" data-value="暂停">暂停</button>
+          </div>
+        </div>
+        <div class="filter-row">
+          <span class="filter-lbl">篇幅</span>
+          <div class="pill-row">
+            <button class="f-pill active" data-filter="length" data-value="">全部</button>
+            <button class="f-pill" data-filter="length" data-value="短篇">短篇</button>
+            <button class="f-pill" data-filter="length" data-value="中篇">中篇</button>
+            <button class="f-pill" data-filter="length" data-value="长篇">长篇</button>
+          </div>
+        </div>
+        <div class="filter-row">
+          <span class="filter-lbl">结局</span>
+          <div class="pill-row">
+            <button class="f-pill active" data-filter="ending" data-value="">全部</button>
+            <button class="f-pill" data-filter="ending" data-value="HE">HE</button>
+            <button class="f-pill" data-filter="ending" data-value="BE">BE</button>
+            <button class="f-pill" data-filter="ending" data-value="OE">OE</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="results-meta" id="resultsMeta"></div>
+
+      <!-- Card grid -->
+      <div class="card-grid" id="cardGrid">
+        <div class="state-block">
+          <div class="loading-dots">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ======== Footer ======== -->
+  <footer class="site-footer">
+    Coupsjeong fanfics &ensp;·&ensp; 投稿经审核后展示
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
