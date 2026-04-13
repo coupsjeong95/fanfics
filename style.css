@@ -102,36 +102,6 @@ body::before {
 .bg-dot-1 { top: 38%; right: 18%; }
 .bg-dot-2 { top: 65%; left: 8%; }
 
-/* Header geo decorations */
-.h-geo { position: absolute; pointer-events: none; }
-.h-ring-1 {
-  right: -90px; top: -90px;
-  width: 300px; height: 300px;
-  border-radius: 50%;
-  border: 1px solid var(--rose-line);
-}
-.h-ring-2 {
-  right: 70px; top: 25px;
-  width: 80px; height: 80px;
-  border-radius: 50%;
-  border: 1px solid var(--rose-soft);
-  opacity: 0.3;
-}
-.h-diamond {
-  right: 155px; bottom: 22px;
-  width: 14px; height: 14px;
-  border: 1.5px solid var(--rose-soft);
-  transform: rotate(45deg);
-  opacity: 0.5;
-}
-.h-rule {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--rose-line) 20%, var(--rose-line) 80%, transparent);
-}
-
-
 /* ---- Layout ---- */
 .container {
   max-width: 840px;
@@ -180,6 +150,80 @@ body::before {
   gap: 0.75rem;
   flex-shrink: 0;
   padding-bottom: 0.1rem;
+}
+
+/* Header geo decorations */
+.h-geo { position: absolute; pointer-events: none; }
+.h-ring-1 {
+  right: -90px; top: -90px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  border: 1px solid var(--rose-line);
+}
+.h-ring-2 {
+  right: 70px; top: 25px;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  border: 1px solid var(--rose-soft);
+  opacity: 0.3;
+}
+.h-diamond {
+  right: 155px; bottom: 22px;
+  width: 14px; height: 14px;
+  border: 1.5px solid var(--rose-soft);
+  transform: rotate(45deg);
+  opacity: 0.5;
+}
+.h-rule {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--rose-line) 20%, var(--rose-line) 80%, transparent);
+}
+
+/* Header controls */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+.btn-icon {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--rose-line);
+  background: var(--surface);
+  color: var(--text-2);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+  transition: all var(--ease);
+}
+.btn-icon:hover {
+  border-color: var(--rose-soft);
+  background: var(--rose-tint);
+  color: var(--rose);
+}
+.btn-cta {
+  background: var(--rose);
+  color: #fff;
+  border: none;
+  padding: 0.48rem 1.2rem;
+  border-radius: var(--pill);
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all var(--ease);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  text-decoration: none;
+}
+.btn-cta:hover {
+  background: var(--rose-deep);
+  color: #fff;
+  transform: translateY(-1px);
 }
 
 /* ---- CTA Button ---- */
