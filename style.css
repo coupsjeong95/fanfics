@@ -60,22 +60,26 @@ body {
 a { color: var(--rose); text-decoration: none; }
 a:hover { color: var(--rose-deep); }
 
-/* ---- Horizontal line background ---- */
+/* ---- Dot-grid background texture ---- */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: repeating-linear-gradient(
-    180deg,
-    transparent 0,
-    transparent 59px,
-    var(--rose-line) 59px,
-    var(--rose-line) 60px
-  );
-  opacity: 0.2;
+  background-image: radial-gradient(circle, var(--rose-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.35;
   pointer-events: none;
   z-index: 0;
 }
+
+.bg-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--rose);
+  opacity: 0.25;
+}
+.bg-dot-1 { top: 38%; right: 18%; }
+.bg-dot-2 { top: 65%; left: 8%; }
 
 /* ---- Layout ---- */
 .container {
@@ -113,7 +117,7 @@ body::before {
   font-size: clamp(1.75rem, 4.5vw, 2.5rem);
   letter-spacing: 0.04em;
   line-height: 1;
-  color: var(--text-2);
+  color: var(--text-1);
 }
 .site-title em {
   font-style: italic;
@@ -546,5 +550,5 @@ main {
   .site-header { padding: 1.75rem 0 1.4rem; }
   main { padding: 1.5rem 0 4rem; }
   .btn-top { bottom: 1.25rem; right: 1rem; }
-  .card-mid { flex-direction: column; gap: 0.15rem; }
+  .card-mid { flex-direction: row; gap: 0.15rem; }
 }
