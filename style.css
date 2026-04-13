@@ -343,7 +343,6 @@ main {
   min-width: 0;                   /* 配合 flex 防止长文本撑破布局 */
   font-weight: 300;
    margin: 0;
-   width: 100%;
 }
 
 .card-platform {
