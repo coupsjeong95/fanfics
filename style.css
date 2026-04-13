@@ -73,13 +73,26 @@ body::before {
 }
 
 .bg-dot {
-  width: 6px; height: 6px;
+  position: fixed; /* 关键：必须设置定位模式 */
+  width: 6px; 
+  height: 6px;
   border-radius: 50%;
   background: var(--rose);
   opacity: 0.25;
+  z-index: 0;      /* 确保在文字底层 */
+  pointer-events: none; /* 防止遮挡点击 */
 }
-.bg-dot-1 { top: 38%; right: 18%; }
-.bg-dot-2 { top: 65%; left: 8%; }
+
+.bg-dot-1 { 
+  top: 38% !important; 
+  right: 18% !important; 
+}
+
+.bg-dot-2 { 
+  top: 65% !important; 
+  left: 8% !important; 
+}
+
 
 
 /* ---- Layout ---- */
