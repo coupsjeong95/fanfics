@@ -68,7 +68,8 @@ function cardHTML(f, idx) {
   </div>
   <div class="card-mid">
     <p class="card-summary">${esc(f.summary)}</p>
-    <span class="card-platform">${esc(f.platform)}</span></div>
+    <span class="card-platform">${esc(f.platform)}</span>
+    </div>
   <div class="card-tags">${tagsStr}</div>
 </article>`;
 }
