@@ -331,8 +331,8 @@ main {
   display: flex;
   justify-content: space-between; /* 关键：两端对齐 */
   align-items: flex-start;        /* 顶部对齐，防止简介多行时平台居中 */
-  gap: 1.5rem;                    /* 简介和平台之间的间距 */
-  margin-bottom: 0.5rem;
+  gap: 1rem;                    /* 简介和平台之间的间距 */
+  width: 100%;
 }
 
 .card-summary {
