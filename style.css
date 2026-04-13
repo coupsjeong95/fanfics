@@ -103,10 +103,33 @@ body::before {
 .bg-dot-2 { top: 65%; left: 8%; }
 
 /* Header geo decorations */
-.h-ring-1 { ... } /* 右上角的大圆圈 */
-.h-ring-2 { ... } /* 标题旁的装饰小圆 */
-.h-diamond { ... } /* 标题旁的小菱形 */
-.h-rule { ... } /* 标题下方的渐变横线 */
+.h-geo { position: absolute; pointer-events: none; }
+.h-ring-1 {
+  right: -90px; top: -90px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  border: 1px solid var(--rose-line);
+}
+.h-ring-2 {
+  right: 70px; top: 25px;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  border: 1px solid var(--rose-soft);
+  opacity: 0.3;
+}
+.h-diamond {
+  right: 155px; bottom: 22px;
+  width: 14px; height: 14px;
+  border: 1.5px solid var(--rose-soft);
+  transform: rotate(45deg);
+  opacity: 0.5;
+}
+.h-rule {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--rose-line) 20%, var(--rose-line) 80%, transparent);
+}
 
 
 /* ---- Layout ---- */
