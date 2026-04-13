@@ -340,21 +340,36 @@ main {
   gap: 10px !important;
 }
 
-/* 2. 强制简介：必须能被压缩 */
+/* 简介样式 */
 .card-summary {
-  flex: 1 !important;             /* 占领剩余空间 */
-  min-width: 0 !important;        /* 重点：如果没有这行，简介太长时会强行撑开占满整行 */
+  display: block !important;    /* 强制块级化，占领 flex 空间 */
+  flex: 1 !important;
+  min-width: 0 !important;
+  color: var(--text-2) !important; /* 确保是简介的颜色 */
+  font-size: 0.78rem !important;
+  line-height: 1.6;
   margin: 0 !important;
-  display: block !important;
-  width: auto !important;         /* 撤销之前的 100% */
+  text-align: left;
 }
 
-/* 3. 强制平台：不许动，不许变小 */
+/* 平台标签样式 - 重新找回它的个性 */
 .card-platform {
-  flex-shrink: 0 !important;      /* 重点：防止被简介挤得看不见 */
-  white-space: nowrap !important; /* 重点：文字绝对不许折行 */
-  margin-top: 2px;
+  display: inline-block !important; /* 必须加这行，样式才会生效 */
+  flex-shrink: 0 !important;
+  
+  /* 恢复你想要的特殊样式 */
+  color: var(--rose) !important;    /* 强制变回红色 */
+  font-size: 0.63rem !important;    /* 字体变小 */
+  font-weight: bold !important;     /* 甚至可以加粗 */
+  text-transform: uppercase;        /* 强制大写 */
+  
+
+  
+  /* 调整对齐 */
+  margin-left: 10px;
+  align-self: flex-start;           /* 顶部对齐 */
 }
+
 
 .card-platform:hover { opacity: 1; }
 
