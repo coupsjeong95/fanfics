@@ -329,27 +329,30 @@ main {
 
 .card-mid {
   display: flex;
+  justify-content: space-between; /* 关键：两端对齐 */
+  align-items: flex-start;        /* 顶部对齐，防止简介多行时平台居中 */
+  gap: 1.5rem;                    /* 简介和平台之间的间距 */
   margin-bottom: 0.5rem;
-  justify-content: space-between;
 }
+
 .card-summary {
   font-size: 0.78rem;
   color: var(--text-2);
-  line-height: 1.65;
-  flex: 1;
-  min-width: 0;
+  line-height: 1.6;
+  flex: 1;                        /* 简介占据剩余所有空间 */
+  min-width: 0;                   /* 配合 flex 防止长文本撑破布局 */
   font-weight: 300;
 }
+
 .card-platform {
   font-size: 0.63rem;
   color: var(--rose);
-  flex-shrink: 0;
+  flex-shrink: 0;                 /* 关键：防止平台文字被压缩 */
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  white-space: nowrap;
-  padding-top: 0.15rem;
+  padding-top: 0.15rem;           /* 微调高度对齐文字 */
   opacity: 0.8;
-  transition: opacity var(--ease);
+  white-space: nowrap;            /* 确保平台名不换行 */
 }
 .card-platform:hover { opacity: 1; }
 
