@@ -330,6 +330,7 @@ main {
 .card-mid {
   display: flex;
   margin-bottom: 0.5rem;
+  justify-content: space-between;
 }
 .card-summary {
   font-size: 0.78rem;
