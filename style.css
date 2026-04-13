@@ -342,6 +342,8 @@ main {
   flex: 1;                        /* 简介占据剩余所有空间 */
   min-width: 0;                   /* 配合 flex 防止长文本撑破布局 */
   font-weight: 300;
+   margin: 0;
+   width: 100%;
 }
 
 .card-platform {
@@ -352,7 +354,8 @@ main {
   text-transform: uppercase;
   padding-top: 0.15rem;           /* 微调高度对齐文字 */
   opacity: 0.8;
-  white-space: nowrap;            /* 确保平台名不换行 */
+  white-space: nowrap;     
+   margin-left: auto;
 }
 .card-platform:hover { opacity: 1; }
 
