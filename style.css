@@ -60,47 +60,22 @@ body {
 a { color: var(--rose); text-decoration: none; }
 a:hover { color: var(--rose-deep); }
 
-/* ---- Background geometric shapes ---- */
-.bg-geo {
-  position: fixed;
-  pointer-events: none;
-  z-index: 0;
-}
-.bg-ring-bl {
-  bottom: -120px; left: -120px;
-  width: 440px; height: 440px;
-  border-radius: 50%;
-  border: 1px solid var(--rose-line);
-  opacity: 0.5;
-}
-.bg-diamond-tr {
-  top: 15%; right: -60px;
-  width: 180px; height: 180px;
-  border: 1px solid var(--rose-line);
-  transform: rotate(45deg);
-  opacity: 0.35;
-}
-
-/* ---- Dot-grid background texture ---- */
+/* ---- Horizontal line background ---- */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: radial-gradient(circle, var(--rose-line) 1px, transparent 1px);
-  background-size: 28px 28px;
-  opacity: 0.35;
+  background-image: repeating-linear-gradient(
+    180deg,
+    transparent 0,
+    transparent 59px,
+    var(--rose-line) 59px,
+    var(--rose-line) 60px
+  );
+  opacity: 0.2;
   pointer-events: none;
   z-index: 0;
 }
-
-.bg-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--rose);
-  opacity: 0.25;
-}
-.bg-dot-1 { top: 38%; right: 18%; }
-.bg-dot-2 { top: 65%; left: 8%; }
 
 /* ---- Layout ---- */
 .container {
@@ -138,7 +113,7 @@ body::before {
   font-size: clamp(1.75rem, 4.5vw, 2.5rem);
   letter-spacing: 0.04em;
   line-height: 1;
-  color: var(--text-1);
+  color: var(--text-2);
 }
 .site-title em {
   font-style: italic;
@@ -150,51 +125,6 @@ body::before {
   gap: 0.75rem;
   flex-shrink: 0;
   padding-bottom: 0.1rem;
-}
-
-/* Header controls */
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  flex-shrink: 0;
-}
-.btn-icon {
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  border: 1px solid var(--rose-line);
-  background: var(--surface);
-  color: var(--text-2);
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.9rem;
-  transition: all var(--ease);
-}
-.btn-icon:hover {
-  border-color: var(--rose-soft);
-  background: var(--rose-tint);
-  color: var(--rose);
-}
-.btn-cta {
-  background: var(--rose);
-  color: #fff;
-  border: none;
-  padding: 0.48rem 1.2rem;
-  border-radius: var(--pill);
-  font-size: 0.8rem;
-  font-family: var(--font-body);
-  letter-spacing: 0.04em;
-  cursor: pointer;
-  transition: all var(--ease);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  text-decoration: none;
-}
-.btn-cta:hover {
-  background: var(--rose-deep);
-  color: #fff;
-  transform: translateY(-1px);
 }
 
 /* ---- CTA Button ---- */
@@ -310,7 +240,6 @@ main {
 .card-title {
   font-size: 0.9rem;
   font-weight: 400;
-   font-family: var(--font-body);
   color: var(--text-1);
   line-height: 1.4;
   flex: 1;
@@ -326,31 +255,24 @@ main {
   color: var(--text-3);
   flex-shrink: 0;
   white-space: nowrap;
-   font-family: var(--font-body);
 }
 
 .card-mid {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
+  display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
   margin-bottom: 0.5rem;
-  width: 100%;
 }
 .card-summary {
-  display: block !important;
   font-size: 0.78rem;
   color: var(--text-2);
   line-height: 1.65;
   flex: 1;
   min-width: 0;
   font-weight: 300;
-  margin: 0 !important;
 }
 .card-platform {
-  display: inline-block !important;
   font-size: 0.63rem;
   color: var(--rose);
   flex-shrink: 0;
@@ -372,7 +294,6 @@ main {
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 300;
-   font-family: var(--font-body);
 }
 .t-sep { margin: 0 0.28em; opacity: 0.5; }
 
@@ -405,7 +326,6 @@ main {
   text-align: center;
   padding: 2rem 1rem;
   font-size: 0.66rem;
-   font-family: var(--font-body);
   color: var(--text-3);
   letter-spacing: 0.08em;
   font-weight: 300;
@@ -547,7 +467,7 @@ main {
 }
 .f-input:focus, .f-textarea:focus { border-color: var(--rose-soft); }
 .f-input::placeholder, .f-textarea::placeholder { color: var(--text-3); }
-.f-textarea { resize: none; min-height: 27px; }
+.f-textarea { resize: none; min-height: 54px; }
 
 /* Radio pill choices */
 .choice-row { display: flex; flex-wrap: wrap; gap: 0.38rem; }
