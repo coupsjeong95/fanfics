@@ -81,6 +81,33 @@ a:hover { color: var(--rose-deep); }
   opacity: 0.35;
 }
 
+/* ---- Dot-grid background texture ---- */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--rose-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--rose);
+  opacity: 0.25;
+}
+.bg-dot-1 { top: 38%; right: 18%; }
+.bg-dot-2 { top: 65%; left: 8%; }
+
+/* Header geo decorations */
+.h-ring-1 { ... } /* 右上角的大圆圈 */
+.h-ring-2 { ... } /* 标题旁的装饰小圆 */
+.h-diamond { ... } /* 标题旁的小菱形 */
+.h-rule { ... } /* 标题下方的渐变横线 */
+
 
 /* ---- Layout ---- */
 .container {
