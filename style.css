@@ -245,6 +245,7 @@ main {
   font-size: 0.9rem;
   font-weight: 400;
   color: var(--text-1);
+   font-family: var(--font-body);
   line-height: 1.4;
   flex: 1;
   min-width: 0;
@@ -271,6 +272,7 @@ main {
 .card-summary {
   font-size: 0.78rem;
   color: var(--text-2);
+     font-family: var(--font-body);
   line-height: 1.65;
   flex: 1;
   min-width: 0;
@@ -279,6 +281,7 @@ main {
 .card-platform {
   font-size: 0.63rem;
   color: var(--rose);
+     font-family: var(--font-body);
   flex-shrink: 0;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -298,6 +301,7 @@ main {
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 300;
+     font-family: var(--font-body);
 }
 .t-sep { margin: 0 0.28em; opacity: 0.5; }
 
@@ -308,6 +312,7 @@ main {
   color: var(--text-3);
   font-size: 0.8rem;
   font-weight: 300;
+     font-family: var(--font-body);
 }
 .loading-dots span {
   display: inline-block;
@@ -333,6 +338,7 @@ main {
   color: var(--text-3);
   letter-spacing: 0.08em;
   font-weight: 300;
+     font-family: var(--font-body);
   border-top: 1px solid var(--rose-line);
 }
 
@@ -398,6 +404,7 @@ main {
   text-transform: uppercase;
   color: var(--text-3);
   font-weight: 300;
+     font-family: var(--font-body);
 }
 .btn-submit {
   background: var(--rose);
