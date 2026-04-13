@@ -2,25 +2,9 @@
    main.js — 主页逻辑
    ============================================================ */
 
-// ---- Theme ----
-(function initTheme() {
-  const t = localStorage.getItem('theme') || 'light';
-  document.documentElement.setAttribute('data-theme', t);
-  document.getElementById('themeBtn').textContent = t === 'dark' ? '☀️' : '🌙';
-})();
-
-document.getElementById('themeBtn').addEventListener('click', () => {
-  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', next);
-  localStorage.setItem('theme', next);
-  document.getElementById('themeBtn').textContent = next === 'dark' ? '☀️' : '🌙';
-});
-
-// ---- State ----
 let allFics = [];
 const filters = { era: '', progress: '', length: '', ending: '' };
 
-// ---- Fetch data from Supabase ----
 async function loadFanfics() {
   const { data, error } = await db
     .from('fanfics')
@@ -30,7 +14,8 @@ async function loadFanfics() {
 
   if (error) {
     console.error('Supabase error:', error);
-    renderState('加载失败，请刷新重试 :(');
+    document.getElementById('cardList').innerHTML =
+      `<div class="state-block">加载失败，请刷新重试</div>`;
     return;
   }
 
@@ -38,11 +23,9 @@ async function loadFanfics() {
   render();
 }
 
-// ---- Filter pill interactions ----
 document.querySelectorAll('.f-pill').forEach(btn => {
   btn.addEventListener('click', () => {
     const { filter, value } = btn.dataset;
-    // Deactivate siblings, activate clicked
     document.querySelectorAll(`.f-pill[data-filter="${filter}"]`)
       .forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -51,7 +34,6 @@ document.querySelectorAll('.f-pill').forEach(btn => {
   });
 });
 
-// ---- Filter logic ----
 function getFiltered() {
   return allFics.filter(f =>
     (!filters.era      || f.era      === filters.era)      &&
@@ -61,50 +43,47 @@ function getFiltered() {
   );
 }
 
-// ---- Render cards ----
 function render() {
   const list = getFiltered();
-  const meta = document.getElementById('resultsMeta');
-  const grid = document.getElementById('cardGrid');
+  document.getElementById('resultsMeta').textContent = list.length ? `共 ${list.length} 篇` : '';
 
-  meta.textContent = list.length ? `共 ${list.length} 篇` : '';
-
+  const container = document.getElementById('cardList');
   if (!list.length) {
-    grid.innerHTML = `<div class="state-block">暂无相关作品</div>`;
+    container.innerHTML = `<div class="state-block">暂无相关作品</div>`;
     return;
   }
-
-  grid.innerHTML = list.map((f, i) => cardHTML(f, i)).join('');
+  container.innerHTML = list.map((f, i) => cardHTML(f, i)).join('');
 }
 
 function cardHTML(f, idx) {
-  const tags = [f.era, f.progress, f.length, f.ending, ...(f.extra_tags || [])]
-    .filter(Boolean)
-    .map(t => `<span class="tag">${esc(t)}</span>`)
-    .join('');
+  const allTags = [f.era, f.progress, f.length, f.ending, ...(f.extra_tags || [])].filter(Boolean);
+  const tagsStr = allTags.map(t => esc(t)).join('<span class="t-sep">·</span>');
+  const platformLabel = esc((f.platform || '').toUpperCase());
 
   return `
-<article class="fic-card" style="animation-delay:${idx * 0.05}s">
-  <a class="card-title"
-     href="${esc(f.link)}"
-     target="_blank"
-     rel="noopener noreferrer">${esc(f.title)}</a>
-  <div class="card-author">${esc(f.author)}</div>
-  <p class="card-summary">${esc(f.summary)}</p>
-  <div class="card-tags">${tags}</div>
+<article class="fic-card" style="animation-delay:${idx * 0.04}s">
+  <div class="card-top">
+    <a class="card-title" href="${esc(f.link)}" target="_blank" rel="noopener noreferrer">${esc(f.title)}</a>
+    <span class="card-author">${esc(f.author)}</span>
+  </div>
+  <div class="card-mid">
+    <p class="card-summary">${esc(f.summary)}</p>
+    <a class="card-platform" href="${esc(f.link)}" target="_blank" rel="noopener noreferrer">${platformLabel}</a>
+  </div>
+  <div class="card-tags">${tagsStr}</div>
 </article>`;
 }
 
-function renderState(msg) {
-  document.getElementById('cardGrid').innerHTML =
-    `<div class="state-block">${msg}</div>`;
-}
+// Back to top
+const topBtn = document.getElementById('topBtn');
+window.addEventListener('scroll', () => {
+  topBtn.classList.toggle('visible', window.scrollY > 280);
+}, { passive: true });
+topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-// ---- Utility: HTML escape ----
 function esc(s) {
   return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;')
     .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-// ---- Init ----
 loadFanfics();

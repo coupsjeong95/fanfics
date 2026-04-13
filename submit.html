@@ -4,32 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>投稿 · Coupsjeong fanfics</title>
-  <script>(function(){const t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="bg-geo bg-ring-bl"></div>
-  <div class="bg-geo bg-diamond-tr"></div>
-  <div class="bg-geo bg-dot bg-dot-1"></div>
-  <div class="bg-geo bg-dot bg-dot-2"></div>
-
   <!-- ======== Header ======== -->
   <header class="site-header">
-    <div class="h-geo h-ring-1"></div>
-    <div class="h-geo h-ring-2"></div>
-    <div class="h-geo h-diamond"></div>
-    <div class="h-rule"></div>
     <div class="container">
       <div class="header-inner">
         <div>
           <div class="header-eyebrow">
-            <a href="index.html" style="color:var(--text-3);text-decoration:none;letter-spacing:0.05em;">← 返回</a>
+            <a href="index.html" style="color:var(--text-3);letter-spacing:0.05em;">← 返回合集</a>
           </div>
-          <h1 class="site-title"><em>投稿</em></h1>
-        </div>
-        <div class="header-actions">
-          <button class="btn-icon" id="themeBtn" aria-label="切换深浅色">🌙</button>
+          <h1 class="site-title">Coupsjeong <em>投稿</em></h1>
         </div>
       </div>
     </div>
@@ -41,30 +28,79 @@
       <div class="form-wrap">
 
         <div class="notice-box">
-          投稿为匿名提交，内容将经管理员审核通过后展示在主页。请确保所填信息准确，链接可正常访问。
+          投稿为匿名提交，内容经管理员审核通过后展示在合集主页。<br>
+          请确保所填信息准确，链接可正常访问。<br>
+          <strong style="font-weight:400;color:var(--rose);">不接受 SVT 群像及澈汉为副 CP 相关投稿。</strong>
         </div>
 
         <form id="submitForm" novalidate>
 
-          <!-- 基本信息 -->
+          <!-- Form title row with submit button -->
+          <div class="form-title-row">
+            <span class="form-section-title">填写投稿信息</span>
+            <button type="submit" class="btn-submit" id="submitBtn">提交投稿</button>
+          </div>
+
+          <!-- 文名 -->
           <div class="f-group">
-            <label class="f-label" for="fTitle">文名 <span class="req">*</span></label>
+            <label class="f-label" for="fTitle">
+              文名 <span class="req">*</span>
+              <span class="f-hint">不超过 10 中文 / 20 英文字符</span>
+              <span class="f-counter" id="titleCounter">0 / 20</span>
+            </label>
             <input class="f-input" type="text" id="fTitle" placeholder="请输入文章标题" autocomplete="off">
           </div>
 
+          <!-- 作者 -->
           <div class="f-group">
-            <label class="f-label" for="fAuthor">作者 <span class="req">*</span></label>
+            <label class="f-label" for="fAuthor">
+              作者 <span class="req">*</span>
+              <span class="f-hint">可输入匿名</span>
+            </label>
             <input class="f-input" type="text" id="fAuthor" placeholder="请输入作者笔名" autocomplete="off">
           </div>
 
+          <!-- 链接 -->
           <div class="f-group">
             <label class="f-label" for="fLink">链接 <span class="req">*</span></label>
             <input class="f-input" type="url" id="fLink" placeholder="https://...">
           </div>
 
+          <!-- 阅读平台 -->
           <div class="f-group">
-            <label class="f-label" for="fSummary">一句话简介 <span class="req">*</span></label>
-            <textarea class="f-textarea" id="fSummary" placeholder="用一句话介绍这篇文…" maxlength="120"></textarea>
+            <label class="f-label">阅读平台 <span class="req">*</span></label>
+            <div class="choice-row">
+              <label class="choice-opt">
+                <input type="radio" name="platform" value="ao3">
+                <span class="choice-face">AO3</span>
+              </label>
+              <label class="choice-opt">
+                <input type="radio" name="platform" value="aff">
+                <span class="choice-face">AFF</span>
+              </label>
+              <label class="choice-opt">
+                <input type="radio" name="platform" value="lofter">
+                <span class="choice-face">Lofter</span>
+              </label>
+              <label class="choice-opt">
+                <input type="radio" name="platform" value="微博">
+                <span class="choice-face">微博</span>
+              </label>
+              <label class="choice-opt">
+                <input type="radio" name="platform" value="其他">
+                <span class="choice-face">其他</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- 简介 -->
+          <div class="f-group">
+            <label class="f-label" for="fSummary">
+              一句话简介 <span class="req">*</span>
+              <span class="f-hint">不超过 25 字</span>
+              <span class="f-counter" id="summaryCounter">0 / 25</span>
+            </label>
+            <textarea class="f-textarea" id="fSummary" placeholder="用一句话介绍这篇文…"></textarea>
           </div>
 
           <div class="f-divider"></div>
@@ -73,40 +109,19 @@
           <div class="f-group">
             <label class="f-label">时代 <span class="req">*</span></label>
             <div class="choice-row">
-              <label class="choice-opt">
-                <input type="radio" name="era" value="现代">
-                <span class="choice-face">现代</span>
-              </label>
-              <label class="choice-opt">
-                <input type="radio" name="era" value="古代">
-                <span class="choice-face">古代</span>
-              </label>
-              <label class="choice-opt">
-                <input type="radio" name="era" value="未来世界">
-                <span class="choice-face">未来世界</span>
-              </label>
-              <label class="choice-opt">
-                <input type="radio" name="era" value="架空">
-                <span class="choice-face">架空</span>
-              </label>
+              <label class="choice-opt"><input type="radio" name="era" value="现代"><span class="choice-face">现代</span></label>
+              <label class="choice-opt"><input type="radio" name="era" value="古代"><span class="choice-face">古代</span></label>
+              <label class="choice-opt"><input type="radio" name="era" value="未来世界"><span class="choice-face">未来世界</span></label>
+              <label class="choice-opt"><input type="radio" name="era" value="架空"><span class="choice-face">架空</span></label>
             </div>
           </div>
 
           <div class="f-group">
             <label class="f-label">进度 <span class="req">*</span></label>
             <div class="choice-row">
-              <label class="choice-opt">
-                <input type="radio" name="progress" value="完结">
-                <span class="choice-face">完结</span>
-              </label>
-              <label class="choice-opt">
-                <input type="radio" name="progress" value="连载">
-                <span class="choice-face">连载</span>
-              </label>
-              <label class="choice-opt">
-                <input type="radio" name="progress" value="暂停">
-                <span class="choice-face">暂停</span>
-              </label>
+              <label class="choice-opt"><input type="radio" name="progress" value="完结"><span class="choice-face">完结</span></label>
+              <label class="choice-opt"><input type="radio" name="progress" value="连载"><span class="choice-face">连载</span></label>
+              <label class="choice-opt"><input type="radio" name="progress" value="暂停"><span class="choice-face">暂停</span></label>
             </div>
           </div>
 
@@ -115,24 +130,15 @@
             <div class="choice-row">
               <label class="choice-opt">
                 <input type="radio" name="length" value="短篇">
-                <span class="choice-face">
-                  短篇
-                  <span class="choice-hint">3万字以下</span>
-                </span>
+                <span class="choice-face">短篇<span class="choice-hint">3万字以下</span></span>
               </label>
               <label class="choice-opt">
                 <input type="radio" name="length" value="中篇">
-                <span class="choice-face">
-                  中篇
-                  <span class="choice-hint">3–10万字</span>
-                </span>
+                <span class="choice-face">中篇<span class="choice-hint">3–10万字</span></span>
               </label>
               <label class="choice-opt">
                 <input type="radio" name="length" value="长篇">
-                <span class="choice-face">
-                  长篇
-                  <span class="choice-hint">10万字以上</span>
-                </span>
+                <span class="choice-face">长篇<span class="choice-hint">10万字以上</span></span>
               </label>
             </div>
           </div>
@@ -140,18 +146,9 @@
           <div class="f-group">
             <label class="f-label">结局 <span class="req">*</span></label>
             <div class="choice-row">
-              <label class="choice-opt">
-                <input type="radio" name="ending" value="HE">
-                <span class="choice-face">HE</span>
-              </label>
-              <label class="choice-opt">
-                <input type="radio" name="ending" value="BE">
-                <span class="choice-face">BE</span>
-              </label>
-              <label class="choice-opt">
-                <input type="radio" name="ending" value="OE">
-                <span class="choice-face">OE</span>
-              </label>
+              <label class="choice-opt"><input type="radio" name="ending" value="HE"><span class="choice-face">HE</span></label>
+              <label class="choice-opt"><input type="radio" name="ending" value="BE"><span class="choice-face">BE</span></label>
+              <label class="choice-opt"><input type="radio" name="ending" value="OE"><span class="choice-face">OE</span></label>
             </div>
           </div>
 
@@ -159,18 +156,12 @@
 
           <!-- 附加标签 -->
           <div class="f-group">
-            <label class="f-label">
-              附加标签
-              <span style="color:var(--text-3);font-weight:300;letter-spacing:0;">（可多选）</span>
-            </label>
-            <div class="tags-grid" id="extraTagsGrid">
-              <!-- 由 submit.js 动态生成 -->
+            <div class="tags-header">
+              <span class="f-label" style="margin:0;">附加标签</span>
+              <span class="f-hint">最多选 3 个</span>
+              <span class="f-counter" id="tagsCounter">0 / 3</span>
             </div>
-          </div>
-
-          <!-- Submit button -->
-          <div class="f-submit">
-            <button type="submit" class="btn-submit" id="submitBtn">提交投稿</button>
+            <div class="tags-grid" id="extraTagsGrid"></div>
           </div>
 
         </form>
@@ -182,6 +173,9 @@
   <footer class="site-footer">
     Coupsjeong fanfics &ensp;·&ensp; 投稿经审核后展示
   </footer>
+
+  <!-- Back to top -->
+  <button class="btn-top" id="topBtn" aria-label="返回顶部">↑</button>
 
   <div class="toast" id="toast"></div>
 

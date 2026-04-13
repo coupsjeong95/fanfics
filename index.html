@@ -4,33 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coupsjeong fanfics</title>
-  <!-- Prevent theme flash -->
-  <script>(function(){const t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Background geometric decorations -->
-  <div class="bg-geo bg-ring-bl"></div>
-  <div class="bg-geo bg-diamond-tr"></div>
-  <div class="bg-geo bg-dot bg-dot-1"></div>
-  <div class="bg-geo bg-dot bg-dot-2"></div>
-
   <!-- ======== Header ======== -->
   <header class="site-header">
-    <div class="h-geo h-ring-1"></div>
-    <div class="h-geo h-ring-2"></div>
-    <div class="h-geo h-diamond"></div>
-    <div class="h-rule"></div>
     <div class="container">
       <div class="header-inner">
         <div>
-          <div class="header-eyebrow">同人文推荐</div>
+          <div class="header-eyebrow">同人文合集</div>
           <h1 class="site-title">Coupsjeong <em>fanfics</em></h1>
         </div>
         <div class="header-actions">
-          <button class="btn-icon" id="themeBtn" aria-label="切换深浅色">🌙</button>
-          <a class="btn-cta" href="submit.html">✦ 投稿</a>
+          <a class="btn-cta" href="submit.html">投稿</a>
         </div>
       </div>
     </div>
@@ -83,12 +70,10 @@
 
       <div class="results-meta" id="resultsMeta"></div>
 
-      <!-- Card grid -->
-      <div class="card-grid" id="cardGrid">
+      <!-- Card list -->
+      <div class="card-list" id="cardList">
         <div class="state-block">
-          <div class="loading-dots">
-            <span></span><span></span><span></span>
-          </div>
+          <div class="loading-dots"><span></span><span></span><span></span></div>
         </div>
       </div>
 
@@ -99,6 +84,9 @@
   <footer class="site-footer">
     Coupsjeong fanfics &ensp;·&ensp; 投稿经审核后展示
   </footer>
+
+  <!-- Back to top -->
+  <button class="btn-top" id="topBtn" aria-label="返回顶部">↑</button>
 
   <div class="toast" id="toast"></div>
 
