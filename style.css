@@ -329,41 +329,33 @@ main {
    font-family: var(--font-body);
 }
 
+/* 1. 强制父级：绝对不许换行 */
 .card-mid {
-  display: flex;
-  justify-content: space-between; /* 关键：两端对齐 */
-  align-items: flex-start;        /* 顶部对齐，防止简介多行时平台居中 */
-  gap: 1rem;         
-flex-direction: row;
-   flex-wrap: nowrap;
-   
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;   /* 重点：这就是强制它们死也要死在同一行的铁律 */
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  gap: 10px !important;
 }
 
+/* 2. 强制简介：必须能被压缩 */
 .card-summary {
-  font-size: 0.78rem;
-  color: var(--text-2);
-  line-height: 1.6;
-  flex: 1;                        /* 简介占据剩余所有空间 */
-  min-width: 0;                   /* 配合 flex 防止长文本撑破布局 */
-  font-weight: 300;
-   margin: 0;
-   display: block;
-   width: auto;
-   font-family: var(--font-body);
+  flex: 1 !important;             /* 占领剩余空间 */
+  min-width: 0 !important;        /* 重点：如果没有这行，简介太长时会强行撑开占满整行 */
+  margin: 0 !important;
+  display: block !important;
+  width: auto !important;         /* 撤销之前的 100% */
 }
 
+/* 3. 强制平台：不许动，不许变小 */
 .card-platform {
-  font-size: 0.63rem;
-  color: var(--rose);
-  flex-shrink: 0;                 /* 关键：防止平台文字被压缩 */
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding-top: 0.15rem;           /* 微调高度对齐文字 */
-  opacity: 0.8;
-  white-space: nowrap;     
-   margin-left: auto;
-   font-family: var(--font-body);
+  flex-shrink: 0 !important;      /* 重点：防止被简介挤得看不见 */
+  white-space: nowrap !important; /* 重点：文字绝对不许折行 */
+  margin-top: 2px;
 }
+
 .card-platform:hover { opacity: 1; }
 
 /* Dot-separated minimal tags */
