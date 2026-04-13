@@ -138,7 +138,7 @@ body::before {
   font-size: clamp(1.75rem, 4.5vw, 2.5rem);
   letter-spacing: 0.04em;
   line-height: 1;
-  color: var(--text-2);
+  color: var(--text-1);
 }
 .site-title em {
   font-style: italic;
@@ -310,6 +310,7 @@ main {
 .card-title {
   font-size: 0.9rem;
   font-weight: 400;
+   font-family: var(--font-body);
   color: var(--text-1);
   line-height: 1.4;
   flex: 1;
@@ -325,6 +326,7 @@ main {
   color: var(--text-3);
   flex-shrink: 0;
   white-space: nowrap;
+   font-family: var(--font-body);
 }
 
 .card-mid {
@@ -343,6 +345,7 @@ main {
   min-width: 0;                   /* 配合 flex 防止长文本撑破布局 */
   font-weight: 300;
    margin: 0;
+   font-family: var(--font-body);
 }
 
 .card-platform {
@@ -355,6 +358,7 @@ main {
   opacity: 0.8;
   white-space: nowrap;     
    margin-left: auto;
+   font-family: var(--font-body);
 }
 .card-platform:hover { opacity: 1; }
 
@@ -367,6 +371,7 @@ main {
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 300;
+   font-family: var(--font-body);
 }
 .t-sep { margin: 0 0.28em; opacity: 0.5; }
 
@@ -399,6 +404,7 @@ main {
   text-align: center;
   padding: 2rem 1rem;
   font-size: 0.66rem;
+   font-family: var(--font-body);
   color: var(--text-3);
   letter-spacing: 0.08em;
   font-weight: 300;
