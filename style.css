@@ -383,7 +383,7 @@ main {
 /* ---- Back to top ---- */
 .btn-top {
   position: fixed;
-  bottom: 18rem; right: 1.5rem;
+  bottom: 2rem; right: 1.5rem;
   width: 32px; height: 32px;
   border-radius: 50%;
   border: 1px solid var(--rose-line);
@@ -571,6 +571,6 @@ main {
   .container { padding: 0 1.2rem; }
   .site-header { padding: 1.75rem 0 1.4rem; }
   main { padding: 1.5rem 0 4rem; }
-  .btn-top { bottom: 1.25rem; right: 1rem; }
+  .btn-top { bottom: 4rem; right: 1rem; }
   .card-mid { flex-direction: row; gap: 0.15rem; margin-bottom: 0.2rem; }
 }
