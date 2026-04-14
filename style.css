@@ -383,7 +383,7 @@ main {
 /* ---- Back to top ---- */
 .btn-top {
   position: fixed;
-  bottom: 6rem; right: 1.5rem;
+  bottom: 18rem; right: 1.5rem;
   width: 32px; height: 32px;
   border-radius: 50%;
   border: 1px solid var(--rose-line);
