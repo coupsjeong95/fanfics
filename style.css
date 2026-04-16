@@ -177,7 +177,7 @@ main {
 }
 
 /* ---- Filter section ---- */
-.filter-block { margin-bottom: 2rem; }
+.filter-block { margin-bottom: 1.5rem; }
 .filter-row {
   display: flex;
   align-items: center;
@@ -224,6 +224,15 @@ main {
 .f-pill.active { color: var(--rose); }
 .f-pill.active::after { transform: scaleX(1); }
 
+/* ---- Meta + sort row ---- */
+.meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  gap: 1rem;
+}
+
 /* Results count */
 .results-meta {
   font-size: 0.67rem;
@@ -231,6 +240,45 @@ main {
   margin-bottom: 0.75rem;
   letter-spacing: 0.06em;
   font-weight: 300;
+}
+
+/* Sort buttons */
+.sort-row {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  flex-shrink: 0;
+}
+.sort-btn {
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.67rem;
+  font-weight: 300;
+  color: var(--text-3);
+  cursor: pointer;
+  padding: 0.1rem 0.3rem;
+  letter-spacing: 0.04em;
+  transition: color var(--ease);
+  position: relative;
+}
+.sort-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0.3rem; right: 0.3rem;
+  height: 1px;
+  background: var(--rose);
+  transform: scaleX(0);
+  transition: transform var(--ease);
+}
+.sort-btn:hover { color: var(--text-2); }
+.sort-btn.active { color: var(--rose); }
+.sort-btn.active::after { transform: scaleX(1); }
+.sort-sep {
+  font-size: 0.6rem;
+  color: var(--text-3);
+  opacity: 0.5;
+  padding: 0 0.05rem;
 }
 
 /* ---- Card list ---- */
@@ -319,6 +367,46 @@ main {
      font-family: var(--font-body);
 }
 .t-sep { margin: 0 0.28em; opacity: 0.5; }
+
+/* ---- Pagination ---- */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+.pg-btn {
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 300;
+  color: var(--text-3);
+  cursor: pointer;
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.03em;
+  transition: color var(--ease), background var(--ease);
+  min-width: 2rem;
+  text-align: center;
+}
+.pg-btn:hover { color: var(--rose); }
+.pg-btn.active {
+  color: var(--rose);
+  background: var(--rose-tint);
+}
+.pg-btn:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+.pg-sep {
+  font-size: 0.65rem;
+  color: var(--text-3);
+  opacity: 0.4;
+  padding: 0 0.1rem;
+}
 
 /* ---- State blocks ---- */
 .state-block {
@@ -573,4 +661,5 @@ main {
   main { padding: 1.5rem 0 4rem; }
   .btn-top { bottom: 4rem; right: 1rem; }
   .card-mid { flex-direction: row; gap: 0.15rem; margin-bottom: 0.2rem; }
+     .meta-row { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
 }
