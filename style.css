@@ -105,11 +105,10 @@ body::before {
 }
 
 /* ---- Header ---- */
-.site-header {
-  padding: 2.5rem 0 1.75rem;
-  border-bottom: 1px solid var(--rose-line);
-  position: relative;
-  z-index: 1;
+border-bottom: none;
+  box-shadow: 0 4px 12px rgba(255, 182, 193, 0.1); 
+  background-color: rgba(255, 255, 255, 0.8); /* 半透明感 */
+  backdrop-filter: blur(5px); /* 毛玻璃效果，超级高级 */
 }
 .header-inner {
   display: flex;
@@ -436,16 +435,23 @@ main {
 
 /* ---- Footer ---- */
 .site-footer {
-  position: relative; z-index: 1;
+  /* 1. 核心：删掉原本的那条横线 */
+  border-top: none; 
+
+  /* 2. 核心：添加阴影感 */
+  /* 参数解释：向上偏移 0，模糊距离 15px，颜色是很淡的灰色或粉色 */
+  box-shadow: 0 -10px 20px -10px rgba(0, 0, 0, 0.05); 
+
+  /* 3. 间距调整：让字和上面的内容（页码）保持距离 */
+  padding: 40px 0 30px; 
+  
+  /* 4. 其他基础样式保持不变 */
   text-align: center;
-  padding: 2rem 1rem;
-  font-size: 0.66rem;
-  color: var(--text-3);
-  letter-spacing: 0.08em;
-  font-weight: 300;
-     font-family: var(--font-body);
-  border-top: 1px solid var(--rose-line);
+  color: #999;
+  font-size: 0.85rem;
+  background-color: #fff; /* 确保有背景色，阴影才明显 */
 }
+
 
 /* ---- Toast ---- */
 .toast {
