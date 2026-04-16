@@ -145,6 +145,25 @@ body::before {
   padding-bottom: 0.1rem;
 }
 
+.h-rule {
+  display: block;           /* 确保它显示出来 */
+  height: auto;             /* 撤销可能的固定高度 */
+  width: 100%;              /* 撑开宽度 */
+  text-align: center;       /* 让内容居中 */
+  margin: 30px 0;           /* 给星星上下留点空地，别离标题太近 */
+  border: none;             /* 彻底关掉之前的线 */
+  background: none;         /* 彻底关掉之前的背景色 */
+  position: relative;
+}
+
+.h-rule::before {
+  content: "✦";             /* 这里填入你喜欢的星星或符号 */
+  color: #ffb6c1;           /* 选一个温柔的粉色 */
+  font-size: 1.5rem;        /* 星星的大小 */
+  letter-spacing: 5px;      /* 如果你放好几个星星，可以拉开间距 */
+}
+
+
 /* ---- CTA Button ---- */
 .btn-cta {
   background: transparent;
