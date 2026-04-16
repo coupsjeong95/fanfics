@@ -111,9 +111,12 @@ renderPagination(totalPages);
 
 // –– Pagination ––
 function renderPagination(totalPages) {
-const pg = document.getElementById('pagination');
-if (totalPages <= 1) { pg.innerHTML = ''; return; }
-
+const pgTop = document.getElementById('pagination-top');
+const pgBottom = document.getElementById('pagination-bottom');
+if (totalPages <= 1) {
+        if(pgTop) pgTop.innerHTML = '';
+  if(pgBottom) pgBottom.innerHTML = '';
+   return;}
 const pages = getPageNums(currentPage, totalPages);
 let html = '';
 
@@ -131,7 +134,8 @@ html += `<button class="pg-btn ${p === currentPage ? 'active' : ''}" onclick="go
 // Next
 html += `<button class="pg-btn" ${currentPage === totalPages ? 'disabled' : ''} onclick="goPage(${currentPage + 1})">&#8594;</button>`;
 
-pg.innerHTML = html;
+if(pgTop) pgTop.innerHTML = html;
+if(pgBottom) pgBottom.innerHTML = html;
 }
 
 function goPage(n) {
