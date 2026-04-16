@@ -82,7 +82,20 @@
         </div>
       </section>
 
-      <div class="results-meta" id="resultsMeta"></div>
+        <!-- Sort + meta row -->
+  <div class="meta-row">
+    <div class="results-meta" id="resultsMeta"></div>
+    <div class="sort-row">
+      <button class="sort-btn active" data-sort="newest">最新</button>
+      <span class="sort-sep">·</span>
+      <button class="sort-btn" data-sort="oldest">最早</button>
+      <span class="sort-sep">·</span>
+      <button class="sort-btn" data-sort="random">随机</button>
+    </div>
+
+      <!-- Pagination -->
+  <div class="pagination" id="pagination"></div>
+  </div>
 
       <!-- Card list -->
       <div class="card-list" id="cardList">
