@@ -176,12 +176,12 @@ const summaryHtml = f.summary
     <p class="card-summary">${esc(f.summary)}</p>
     <span class="card-platform">${esc(f.platform)}</span>
     </div>
-  <div class="card-tags">${tagsStr}</div>
+  <div class="card-tags">${tagsHtml}</div>
 </article>`;
 }
 
 function renderState(msg) {
-document.getElementById(‘cardList’).innerHTML =
+document.getElementById('cardList').innerHTML =
 `<div class="state-block">${msg}</div>`;
 }
 
