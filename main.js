@@ -157,7 +157,7 @@ return pages;
 function cardHTML(f, idx) {
   const coreTags = [f.era, f.progress, f.length, f.ending].filter(Boolean);
 const extraTags = (f.extra_tags || []);
-const allTags = […coreTags, …extraTags];
+const allTags = [...coreTags, ...extraTags];
 const tagsHtml = allTags
 .map((t, i) => `${i > 0 ? '<span class="t-sep">·</span>' : ''}${esc(t)}`)
 .join('');
